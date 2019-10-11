@@ -19,7 +19,7 @@
         <a class="nav-link" href="{{ url('employee/create') }}">Employee</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Employee Work</a>
+        <a class="nav-link" href="{{ url('employee/workhistory/create') }}">Employee Work</a>
       </li>
     </ul>
   </div>
