@@ -22,10 +22,5 @@ class EmployeeController extends Controller
         $employee->save();
         $request->session()->flash('alert-info', 'User was successful added!');
         return redirect('/employee/create');
-
-
-
-
-
     }
 }
