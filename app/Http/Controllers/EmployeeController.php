@@ -13,14 +13,15 @@ class EmployeeController extends Controller
     }
 
     public function store(Request $request){
-        $employee =new Employee();
-        $employee->name = $request->name;
-        $employee->address = $request->address;
-        $employee->cnic = $request->cnic;
-        $employee->mobile = $request->mobile;
-        $employee->city = $request->city;
-        $employee->save();
-        $request->session()->flash('alert-info', 'User was successful added!');
+        // $employee =new Employee();
+        // $employee->name = $request->name;
+        // $employee->address = $request->address;
+        // $employee->cnic = $request->cnic;
+        // $employee->mobile = $request->mobile;
+        // $employee->city = $request->city;
+        // $employee->save();
+        Employee::create($request->all());
+        $request->session()->flash('alert-info', 'Employee Record successful added!');
         return redirect('/employee/create');
     }
 }
