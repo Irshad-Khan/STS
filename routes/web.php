@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('employee/create','EmployeeController@create');
+Route::post('employee/store','EmployeeController@store');
