@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('address');
             $table->string('cnic')->nullable();
             $table->string('mobile');
+            $table->string('city');
             $table->timestamps();
         });
     }
