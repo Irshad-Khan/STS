@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('employee/create','EmployeeController@create');
+Route::get('employee/read','EmployeeController@read');
+Route::get('employee/edit/{id}','EmployeeController@edit');
+Route::get('employee/delete/{id}','EmployeeController@delete');
+Route::post('employee/update/{id}','EmployeeController@update');
 Route::post('employee/store','EmployeeController@store');

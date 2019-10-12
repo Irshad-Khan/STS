@@ -31,7 +31,7 @@
   <div style="text-align: center;">
     <button type="submit" class="btn btn-primary">Add Emloyee</button>
     <button type="reset" class="btn btn-primary">Reset</button>
-    <a href="" class="btn btn-primary">Employee's Detail</a>
+    <a href="{{ url('employee/read') }}" class="btn btn-primary">Employee's Detail</a>
   </div>
 </form>
          </div>

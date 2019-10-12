@@ -2,14 +2,11 @@
 <html lang="en">
  <head>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   @include('layouts.partials.head')
-   <script>
-       $(document).ready(function(){
-        setTimeout(function() {
-    $('.flash-message').remove();
-}, 3000);
-});
-   </script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+
+@include('layouts.partials.head')
+  
  </head>
  <body>
 @include('layouts.partials.nav')
