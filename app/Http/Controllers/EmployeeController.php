@@ -37,6 +37,14 @@ class EmployeeController extends Controller
     }
 
     /**
+     * Function used to return record ro show view
+     * 
+     */
+    public function show($id)
+    {
+        dd($id);
+    }
+    /**
      * Function used find record of employee and return back
      * edit view with employee specific record
      * 

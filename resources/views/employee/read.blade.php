@@ -28,7 +28,7 @@
                 <td style="text-align: center;">
                     <a href="{{ url('employee/show/'.$employee->id ) }}" class="btn btn-warning action-btn-size"><i class="fa fa-eye"></i> View</a>
                     <a href="{{ url('employee/edit/'.$employee->id ) }}" class="btn btn-primary action-btn-size"><i class="fa fa-edit"></i> Update</a>
-                    <a href="{{ url('employee/delete/'.$employee->id ) }}" onclick="return confirm('Are you sure to Delete?')" class="btn btn-danger action-btn-size"><i class="fa fa-trash"></i> Delete</a>
+                    <a href="{{ url('employee/delete/'.$employee->id ) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger action-btn-size"><i class="fa fa-trash"></i> Delete</a>
                 </td>
             </tr>
         @endforeach
