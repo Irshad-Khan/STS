@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
     <div style="    text-align: center; margin-top: 30px; color: #629270;">
-        <h3>All Employee Record</h3>
+        <h3>All Employees Record</h3>
     </div>
     <hr>
   <table id="example" class="table table-striped table-bordered" style="width:100%">

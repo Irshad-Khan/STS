@@ -29,8 +29,8 @@
     <input type="text" class="form-control" name="mobile" placeholder="+923023333333" value="{{ $employee->mobile }}">
   </div>
   <div style="text-align: center;">
+    <a href="{{ URL::previous() }}" class="btn btn-primary" style="border-radius: 21px;" title="Back"><i class="fa fa-arrow-circle-left"></i></i></a>
     <button type="submit" class="btn btn-primary">Update Emloyee</button>
-    <a href="{{ URL::previous() }}" class="btn btn-primary">Back</a>
   </div>
 </form>
          </div>

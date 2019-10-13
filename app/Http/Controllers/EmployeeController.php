@@ -42,8 +42,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        $employee = Employee::findOrFail($id);
+        return view('employee.show',compact('employee'));
     }
+    
     /**
      * Function used find record of employee and return back
      * edit view with employee specific record

@@ -7,5 +7,5 @@ $(document).ready(function(){
 
 // Data Table Script
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('table').DataTable();
 } );
