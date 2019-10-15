@@ -33,7 +33,7 @@
     <a href="{{ url('employee/read') }}" class="btn btn-primary">Employees Detail</a>
   </div>
 </form>
-         </div>
+  </div>
      </div>
    </div>
 @endsection
