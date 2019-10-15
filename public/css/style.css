@@ -3,6 +3,10 @@
     margin-left: auto;
     padding: 40px;
     margin-top: 40px;
+    border: 1px solid;
+    border-radius: 20px;
+    box-shadow: 0 0 2px #666;
+    margin-bottom: 20px
 }
 
 .flash-message{
@@ -35,7 +39,7 @@ fieldset {
     padding: 30px;
     border: 1px solid #666;
     border-radius: 8px;
-    box-shadow: 0 0 4px #666;
+    box-shadow: 0 0 2px #666;
 }
 legend {
 	float:left;
