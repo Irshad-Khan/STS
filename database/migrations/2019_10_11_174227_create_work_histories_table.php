@@ -16,13 +16,13 @@ class CreateWorkHistoriesTable extends Migration
         Schema::create('work_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('employee_id');
-            $table->bigInteger('suitqty');
-            $table->bigInteger('shirtqty');
-            $table->bigInteger('pantqty');
-            $table->double('suitprice',5,2);
-            $table->double('shirtprice',5,2);
-            $table->double('pentprice',5,2);
-            $table->double('totalprice',5,2);
+            $table->bigInteger('suitqty')->nullable();
+            $table->bigInteger('shirtqty')->nullable();
+            $table->bigInteger('pantqty')->nullable();
+            $table->double('suitprice',5,2)->nullable();
+            $table->double('shirtprice',5,2)->nullable();
+            $table->double('pentprice',5,2)->nullable();
+            $table->double('totalprice',5,2)->nullable();
             $table->timestamps();
         });
     }

@@ -23,3 +23,5 @@ Route::get('employee/show/{id}','EmployeeController@show');
 Route::post('employee/update/{id}','EmployeeController@update');
 Route::post('employee/store','EmployeeController@store');
 Route::get('employee/workhistory/create','WorkHistoryController@create');
+
+Route::post('employee/workhistory/store','WorkHistoryController@store');
