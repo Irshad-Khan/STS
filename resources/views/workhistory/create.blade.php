@@ -55,7 +55,46 @@
      </div>
      </div>
    </div>
-  <div class="tabeldata" style="max-width: 1330px; margin-left: auto; margin-right: auto;">
-
-  </div>
+   <hr>
+<div class="container" style="max-width: 1370px;">
+<h3 style="text-align: center; margin-top: 30px; margin-bottom: 30px; color: #629270;">Employee Work Reocrd</h3>
+<hr>
+ <table id="tableID" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+            <tr>
+                <th>#</th>
+                <th>Employee</th>
+                <th>Suit Qty</th>
+                <th>Shirt Qty</th>
+                <th>Pent Qty</th>
+                <th>Suit Rate</th>
+                <th>Shirt Rate</th>
+                <th>Pent Rate</th>
+                <th>Total</th>
+                <th style="text-align: center;">Action</th>
+            </tr>
+        </thead>
+        <tbody class="tabeldata" style="max-width: 1330px; margin-left: auto; margin-right: auto;">
+          @foreach (json_decode($workhistory) as $key => $val )
+                <tr>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $val->employee_id }}</td>
+                <td>{{ $val->suitqty }}</td>
+                <td>{{ $val->shirtqty }}</td>
+                <td>{{ $val->pantqty }}</td>
+                <td>{{ $val->suitprice }}</td>
+                <td>{{ $val->shirtprice }}</td>
+                <td>{{ $val->pentprice }}</td>
+                <td>{{ $val->totalprice }}</td>
+                <td style="text-align: center; width: 370px;">
+                    <a href="" class="btn btn-warning action-btn-size"><i class="fa fa-eye"></i> View</a>
+                    <a href="" class="btn btn-primary action-btn-size"><i class="fa fa-edit"></i> Update</a>
+                    <a href="" onclick="return confirm('Are you sure?')" class="btn btn-danger action-btn-size"><i class="fa fa-trash"></i> Delete</a>
+                </td>
+                </tr>
+            @endforeach     
+        </tbody>
+        </html>
+</div>
+ 
 @endsection

@@ -9,6 +9,7 @@ use App\Service\WorkHistoryService;
 use Illuminate\Support\Facades\DB;
 class WorkHistoryController extends Controller
 {
+    
     /**
      * Function is used to get only name and id of all employee and return back to 
      * create view of employee workhistory
@@ -16,7 +17,10 @@ class WorkHistoryController extends Controller
      */
     public function create (){
         $employee = Employee::all()->pluck('name','id');
-        return view('workhistory.create',compact('employee'));
+        $workhistory = DB::table('work_histories')
+                        ->select('employee_id','suitqty','shirtqty','pantqty','suitprice','shirtprice','pentprice','totalprice')
+                        ->get();
+        return view('workhistory.create',compact('employee','workhistory'));
     }
 
     /**
@@ -39,20 +43,7 @@ class WorkHistoryController extends Controller
         $workhistory = DB::table('work_histories')
                         ->select('employee_id','suitqty','shirtqty','pantqty','suitprice','shirtprice','pentprice','totalprice')
                         ->get();
-
-        // $workhistory = WorkHistory::all();
-        // dd($workhistory->employee->name);
-        // foreach(json_decode($workhistory) as $key => $val){
-        //         dump($val->employee->name);
-        // }
-        // die;
         $view = view("ajaxView.workhistory",compact('workhistory'))->render();
         return response()->json(['html'=>$view]);
-        // return response()->json([
-        //     'message' => 'Saved',
-        //     'data' => $workhistory    
-        // ]);
-        
-
     }
 }
