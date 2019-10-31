@@ -48,3 +48,10 @@ legend {
 legend + * {
 	clear:both;
 }
+
+.field-style{
+    width: 70px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

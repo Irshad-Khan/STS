@@ -43,7 +43,8 @@ $(document).ready(function() {
     
 } );
 
- // $("table").stupidtable();
+
+ // Used to store data of workhistory into database
  $(document).ready(function() {
 
     // Ajax for our form
@@ -66,7 +67,10 @@ $(document).ready(function() {
             cache    : false,
 
             success: function(workhistory){  // if php return a success state
+                document.getElementById("workhistory").reset();
                 $('.tabeldata').html(workhistory.html);
+                $("#getCode").html(workhistory.message);
+                $("#getCodeModal").modal('show');
                
        },
        error: function (jqXHR, exception) {
@@ -89,5 +93,23 @@ $(document).ready(function() {
         alert(msg);
     },
         })
+    });
+});
+
+$(document).ready(function(){
+
+    $('.updateworkhistory').click(function(){
+        $(this).text('Update');
+        $(this).closest("tr").find(".field-style").prop('disabled',false);
+        var $item = $(this).closest("tr");
+        var suitqty = $item.find('.suitqty').val();
+        var pentqty = $item.find('.pentqty').val();
+        var shirtqty = $item.find('.shirtqty').val();
+        var suitprice = $item.find('.suitprice').val();
+        var pentprice = $item.find('.pentprice').val();
+        var shirtprice = $item.find('.shirtprice').val();
+        
+        console.log(suitqty,pentqty,shirtqty,suitprice,pentprice,shirtprice);
+    // $("#resultas").append($item);       // Outputs the answer       
     });
 });

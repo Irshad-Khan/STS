@@ -13,6 +13,6 @@ class Employee extends Model
      */
     public function workHistory()
     {
-        return $this->hasMany('App\WorkHistory','employee_id');
+        return $this->hasMany(WorkHistory::class);
     }
 }

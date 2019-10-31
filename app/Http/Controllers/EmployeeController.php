@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\WorkHistory;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -76,6 +77,14 @@ class EmployeeController extends Controller
     public function delete(Request $request, $id)
     {
         $employee = Employee::findOrFail($id);
+        $workhistory = WorkHistory::where('employee_id', '=', $id)->first();
+        // dd(count($workhistory));
+       
+        if($workhistory){
+            
+            $workhistory->delete();
+            
+        }
         $employee->delete();
         $request->session()->flash('alert-danger', 'Employee Record successful deleted!');
         return redirect('/employee/read');

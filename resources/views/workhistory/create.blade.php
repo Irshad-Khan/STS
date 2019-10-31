@@ -2,6 +2,19 @@
 @section('content')
    <div class="album text-muted">
      <div class="container">
+     <!-- Modal -->
+ <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       </div>
+       <div class="modal-body" id="getCode" style="text-align: center; font-size: 18px; background: #5cb85c; color: white;">
+          //ajax success content here.
+       </div>
+    </div>
+   </div>
+ </div>
        <div class="row">
        <form method="post" action="/employee/workhistory/store" id="workhistory" enctype="multipart/form-data" class="form-style">
             <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
@@ -75,26 +88,27 @@
             </tr>
         </thead>
         <tbody class="tabeldata" style="max-width: 1330px; margin-left: auto; margin-right: auto;">
-          @foreach (json_decode($workhistory) as $key => $val )
+          @foreach ($workhistory as $key => $val )
                 <tr>
                 <td>{{ $key + 1 }}</td>
-                <td>{{ $val->employee_id }}</td>
-                <td>{{ $val->suitqty }}</td>
-                <td>{{ $val->shirtqty }}</td>
-                <td>{{ $val->pantqty }}</td>
-                <td>{{ $val->suitprice }}</td>
-                <td>{{ $val->shirtprice }}</td>
-                <td>{{ $val->pentprice }}</td>
-                <td>{{ $val->totalprice }}</td>
-                <td style="text-align: center; width: 370px;">
-                    <a href="" class="btn btn-warning action-btn-size"><i class="fa fa-eye"></i> View</a>
-                    <a href="" class="btn btn-primary action-btn-size"><i class="fa fa-edit"></i> Update</a>
-                    <a href="" onclick="return confirm('Are you sure?')" class="btn btn-danger action-btn-size"><i class="fa fa-trash"></i> Delete</a>
+                <td>{{ $val->employee->name }}</td>
+                <td><input type="text" name="suitqty" id="suitqty" value="{{ $val->suitqty }}" class="form-control field-style suitqty" disabled></td>
+                <td><input type="text" name="shirtqty" id="shirtqty" value="{{ $val->shirtqty }}" class="form-control field-style shirtqty" disabled></td>
+                <td><input type="text" name="pantqty" id="pantqty" value="{{ $val->pantqty }}" class="form-control field-style pantqty" disabled></td>
+                <td><input type="text" name="suitprice" id="suitprice" value="{{ $val->suitprice }}" class="form-control field-style suitprice" disabled></td>
+                <td><input type="text" name="shirtprice" id="shirtprice" value="{{ $val->shirtprice }}" class="form-control field-style shirtprice" disabled></td>
+                <td><input type="text" name="pentprice" id="pentprice" value="{{ $val->pentprice }}" class="form-control field-style pentprice" disabled></td>
+                <td><input type="text" name="totalprice" id="totalprice" value="{{ $val->totalprice }}" class="form-control field-style totalprice" readonly></td>
+                <td style="text-align: center;">
+                    <button type="button" class="btn btn-primary action-btn-size updateworkhistory"><i class="fa fa-edit"></i> Edit</button>
+                    <a href="{{ url('employee/workhistory/delete/'.$val->id ) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger action-btn-size"><i class="fa fa-trash"></i> Delete</a>
                 </td>
                 </tr>
             @endforeach     
         </tbody>
+        <table>
+        </div>
         </html>
-</div>
+
  
 @endsection

@@ -17,9 +17,7 @@ class WorkHistoryController extends Controller
      */
     public function create (){
         $employee = Employee::all()->pluck('name','id');
-        $workhistory = DB::table('work_histories')
-                        ->select('employee_id','suitqty','shirtqty','pantqty','suitprice','shirtprice','pentprice','totalprice')
-                        ->get();
+        $workhistory = WorkHistory::query()->get();
         return view('workhistory.create',compact('employee','workhistory'));
     }
 
@@ -40,10 +38,16 @@ class WorkHistoryController extends Controller
         $workhistory->pentprice = $request->pentprice;
         $workhistory->totalprice = WorkHistoryService::calculateTotalPrice($request);
         $workhistory->save();
-        $workhistory = DB::table('work_histories')
-                        ->select('employee_id','suitqty','shirtqty','pantqty','suitprice','shirtprice','pentprice','totalprice')
-                        ->get();
+        $workhistory = WorkHistory::query()->get();
         $view = view("ajaxView.workhistory",compact('workhistory'))->render();
-        return response()->json(['html'=>$view]);
+        
+        return response()->json(['html'=>$view, 'message'=>'Record Saved Successsfully']);
+    }
+    public function delete(Request $request,$id)
+    {
+        $workhistory = WorkHistory::findOrFail($id);
+        $workhistory->delete();
+        $request->session()->flash('alert-danger', 'Employee Record successful deleted!');
+        return redirect()->back();
     }
 }
